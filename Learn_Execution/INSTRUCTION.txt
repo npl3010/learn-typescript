@@ -1,0 +1,35 @@
+****************************************************************************************************
+PART 1: HOW TO EXECUTE TYPESCRIPT FILE?
+1. Install:
+    npm install -g typescript
+
+2. Create a .ts file, for example, test.ts.
+
+3. Run .ts file:
+- SOLUTION 1:
+    Compile TypeScript into JavaScript:
+    (This will create a .js file from .ts with the same name)
+        tsc test.ts
+    Then, run the javascript file, the test.ts file will get executed:
+        node test.js
+
+- SOLUTION 2:
+    Install ts-node:
+        npm install -g ts-node
+    Compile and execute:
+        ts-node test.ts
+
+
+****************************************************************************************************
+PART 2: HOW TO CONFIG PRETTIER FOR TYPESCRIPT?
+1. Create .prettierrc.
+
+2. Go to prettier.io/playground.
+
+3. Config:
+    Set --parser to 'typescript'.
+    Set --single-quote to true.
+
+4. Click 'Copy config JSON'.
+
+5. Paste it into .prettierrc.
