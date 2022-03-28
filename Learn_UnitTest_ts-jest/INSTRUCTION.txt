@@ -1,0 +1,24 @@
+****************************************************************************************************
+PART 1: UNIT TESTING WITH ts-jest?
+0. Prepare TypeScript project:
+    npm init
+
+1. ts-jest:
+    Install Dependencies (Go to ts-jest document to known how to install):
+        npm install --save-dev jest typescript ts-jest @types/jest
+    Create Jest config file:
+        npx ts-jest config:init
+    Create tsconfig.json:
+        tsc --init
+    Setup scripts for test in package.json:
+        "scripts": {
+            "test": "jest"
+        },
+
+2. Unit testing:
+    Create a .ts file.
+    To test this file, create a .test.ts file with the same name.
+    Run test from command line (with npm):
+        npm t, npm test, npm run test
+        npx jest
+    Run test with VSCode extension: Jest, Jest Runner, Jest Snippets.
