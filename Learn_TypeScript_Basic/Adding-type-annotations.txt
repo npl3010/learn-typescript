@@ -1,0 +1,26 @@
+****************************************************************************************************
+0. Basic knownledge:
+- In TypeScript, there are two types of annotations:
+    + Explicit types.
+    + Implicit types (Inferred types).
+
+- After compiling, all type annotation and type assertions are removed.
+
+
+****************************************************************************************************
+1. Explicit types:
+- Explicit types are when we intentionally provide the type using a special TypeScript syntax.
+
+- For example:
+    let isTrue: boolean = true;
+
+
+****************************************************************************************************
+2. Implicit types:
+- Implicit types come from TypeScript inferring the type based on a variable's initial value and look just like regular JavaScript.
+- In other words, implicit type means that the type is automatically declared for a variable.
+
+- For example:
+    let isTrue= true;
+    isTrue= 10;
+    // error: Type '10' is not assignable to type 'boolean'.

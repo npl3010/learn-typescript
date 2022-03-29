@@ -1,0 +1,26 @@
+****************************************************************************************************
+0. Basic knownledge:
+- Dynamically-typed languages:
+    + Perform type checking at runtime.
+
+- Statically-typed languages:
+    + Perform type checking at compile time.
+    + Require you to declare the data types of your variables before you use them.
+
+
+****************************************************************************************************
+1. What is Static Typing?
+(https://se-education.org/learningresources/contents/javascript/staticTypingInJavascript.html)
+
+- Statically-typed languages like Java, Go, and C++ are able to catch type-related errors at compile time.
+However, in dynamically typed languages like Python, Ruby, and JavaScript,
+such errors are not as easily discoverable because the types of variables are only known at runtime.
+
+- To help identify these problems without having to run any code, many developers have adopted technologies
+to enable static type checking for codebases written in dynamically typed languages.
+The decision to move towards a statically-typed codebase is usually motivated by the following benefits:
+    + Static type checking catches type errors earlier in the development cycle.
+    + Static type checking can make developers more productive.
+        With the additional type information made available to IDEs,
+        features such as auto-completion, code hinting, incremental error checking,
+        and automatic refactoring become more powerful.
