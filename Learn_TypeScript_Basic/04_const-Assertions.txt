@@ -1,0 +1,27 @@
+****************************************************************************************************
+1. 'const' assertions:
+- When we construct new literal expressions with 'const' assertions,
+we can signal to the language that:
+    + No literal types in that expression should be widened
+    (e.g. no going from "hello" to string).
+    + Object literals get readonly properties.
+    + Array literals become readonly tuples.
+
+- For example:
+    // Type '"hello"':
+    let x = "hello" as const;
+
+    // Type 'readonly [10, 20]':
+    let y = [30, 50] as const;
+
+    // Type '{ readonly text: "hello" }':
+    let z = { text: "hello" } as const;
+
+- This can even be used to enable enum-like patterns in plain JavaScript code if 
+you choose not to use TypeScript's enum construct.
+For example:
+    export const Colors = {
+        red: "RED",
+        blue: "BLUE",
+        green: "GREEN",
+    } as const;

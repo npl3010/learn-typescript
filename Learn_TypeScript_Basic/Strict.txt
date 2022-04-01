@@ -1,0 +1,31 @@
+****************************************************************************************************
+1. Strict flag & strict type-checking options:
+- In tsconfig.json, there is a group of strict type-checking options.
+
+- "strict" option:
+    + Values:
+        true:
+            Enable all strict type-checking options, which are outlined below the "strict" option.
+
+- "noImplicitAny" option:
+    + In some cases where no type annotations are present,
+    TypeScript will fall back to a type of 'any' for a variable when it cannot infer the type.
+    + Values:
+        true:
+            Enable error reporting when the problem above occurs.
+
+- "strictNullChecks" option:
+    + Values:
+        true:
+            'null' and 'undefined' have their own distinct types
+            and you'll get a type error if you try to use them where a concrete value is expected.
+        false:
+            null and undefined are effectively ignored by the language.
+            This can lead to unexpected errors at runtime.
+
+- "alwaysStrict" option:
+    + Ensures that your files are parsed in the ECMAScript strict mode,
+    and emit 'use strict' for each source file.
+    + Values:
+        true:
+            Enable strict mode.

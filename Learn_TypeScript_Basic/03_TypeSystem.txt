@@ -1,0 +1,230 @@
+****************************************************************************************************
+TABLE OF CONTENTS:
+0. Basic knownledge.
+1. Type system.
+
+
+****************************************************************************************************
+0. Basic knownledge:
+(https://betterprogramming.pub/understanding-typescripts-type-system-a3cdec8e95ae)
+
+- Type system:
+A type system is a set of rules that assigns a type to every variable,
+expression, class, function, object, or module in the system.
+These rules are checked against to expose errors in a program and can be performed at
+compile time (static type checking) or at runtime (dynamic type checking).
+
+- The following are primitive types in TypeScript:
+    + number.
+    + bigint.
+    + string.
+    + boolean.
+    + null.
+    + undefined.
+    + symbol.
+
+
+****************************************************************************************************
+1. Type system:
+- Type system in JavaScript:
+JavaScript is dynamically typed and therefore variables have no associated types.
+You can assign a value of one type to a variable and later assign a value of a different type to the same variable.
+
+- Type system in TypeScript:
+TypeScript's system provides for specifying and inferring types, as well as setting types as optional.
+The optional setting allows you to choose when to enforce types and when to allow dynamic types.
+To opt out of type checking, you can use the 'any' keyword.
+
+
+****************************************************************************************************
+2. Union types:
+- Syntax:
+    + Using type alias:
+        type newAlias = typeA | typeB;
+    + Using variable:
+        let myVar: typeA | typeB;
+
+- A union type is a type formed from two or more other types,
+representing values that may be any one of those types.
+We refer to each of these types as the union's members.
+For example:
+    let result: number | string;
+    result = 10; // valid!
+    result = 'Hi'; // valid!
+    result = false; // invalid!
+
+
+****************************************************************************************************
+3. Intersection types:
+- Syntax:
+    + Using type alias:
+        type newAlias = typeA & typeB;
+    + Using variable:
+        let myVar: typeA & typeB;
+
+- An intersection type creates a new type by combining multiple existing types.
+The new type has all features of the existing types.
+
+
+****************************************************************************************************
+4. Literal types:
+- The string literal types allow you to define a type that accepts only one specified string literal.
+For example:
+    let click: 'click';
+    click = 'click'; // valid!
+    click = 'dblclick'; // invalid! Type '"dblclick"' is not assignable to type '"click"'.
+
+- There are three sets of literal types available in TypeScript:
+    + String Literal Types.
+    + Numeric Literal Types.
+    + Boolean Literal Types.
+
+- The string literal types can combine nicely with the union types
+to define a finite set of string literal values for a variable.
+For example:
+    let mouseEvent: 'click' | 'dblclick' | 'mouseup' | 'mousedown';
+    mouseEvent = 'click'; // valid!
+    mouseEvent = 'dblclick'; // valid!
+    mouseEvent = 'mouseover'; // invalid!
+
+- If you use the string literal types in multiple places, they will be very verbose.
+To avoid this, you can use the type aliases.
+For example:
+    type MouseEvent: 'click' | 'dblclick' | 'mouseup' | 'mousedown';
+    let mouseEvent: MouseEvent;
+    let anotherEvent: MouseEvent;
+
+
+****************************************************************************************************
+5. Object types:
+- The TypeScript 'object' type represents all values that are not in primitive types.
+For example:
+    let person: object;
+    person = {
+        fName: 'Linh',
+        lName: 'Nguyen',
+    };
+
+- When defining an object type, to explicitly specify properties of an object,
+we simply list its properties and their types.
+For example:
+    let person: {
+        fName: string;
+        lName: string;
+    } = {
+        fName: 'Linh',
+        lName: 'Nguyen',
+    };
+
+- object vs. Object:
+    + TypeScript has another type called 'Object' with the letter 'O' in uppercase.
+    + The 'object' type represents all non-primitive values.
+    + The 'Object' type describes the functionality of all objects.
+    For example, the 'Object' type has the toString() methods that can be accessible by any object.
+
+
+****************************************************************************************************
+6. Type Aliases:
+- If you want to use the same type more than once and refer to it by a single name, use type alias.
+
+- Syntax:
+    type alias = existingType;
+
+- For example (1):
+    type Alphanumeric = string | number;
+    let v: Alphanumeric;
+    v = 10; // valid!
+    v = 'Hi'; // valid!
+    v = false; // invalid!
+
+- For example (2):
+    type Point = {
+        x: number;
+        y?: number;
+    };
+    let pt1: Point;
+    let pt2: Point;
+    pt1 = { x: 30 }; // valid!
+    pt2 = { x: 30, y: 50 }; // valid!
+
+
+****************************************************************************************************
+7. Interface:
+(https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#interfaces)
+
+- An interface declaration is another way to name an object type.
+
+- Naming:
+    + Use PascalCase.
+    + Don't use prefix 'I'.
+
+- Differences Between Type Aliases and Interfaces:
+    + Interface:
+        ++ Extending an interface using the 'extends' keyword.
+        ++ Adding new fields to an existing interface is possible.
+    + Type Alias:
+        ++ Extending a type via intersections (intersection type).
+        ++ A type cannot be changed after being created.
+
+
+- 7.1. Optional properties:
+To declare an optional property, use the question mark (?) at the end of the property name in the declaration.
+For example:
+    interface Person {
+        name: string;
+        age?: number;
+    }
+
+
+- 7.2. Readonly properties:
+To declare an read-only property, use the 'readonly' keyword before the name of the property.
+
+
+- 7.3. Function types:
+For example:
+    interface StringFormat {
+        (str: string, isUpper: boolean): string
+    }
+
+    let format1: StringFormat;
+    format1 = function (str: string, isUpper: boolean) {
+        return isUpper ? str.toLocaleUpperCase() : str.toLocaleLowerCase();
+    };
+
+    let format2: StringFormat;
+    format2 = function (msg: string, upper: boolean) {
+        return upper ? msg.toLocaleUpperCase() : msg.toLocaleLowerCase();
+    };
+
+
+- 7.4. Class types:
+For example:
+    interface Json {
+        toJSON(): string
+    }
+    class Person implements Json {
+        constructor(private firstName: string, private lastName: string) {
+        }
+        toJson(): string {
+            return JSON.stringify(this);
+        }
+    }
+    let person = new Person('Linh', 'Nguyen');
+    console.log(person.toJson());
+
+
+****************************************************************************************************
+. Function:
+
+
+****************************************************************************************************
+. Enum:
+
+
+****************************************************************************************************
+. Generics:
+
+
+****************************************************************************************************
+. Utility types:
+
