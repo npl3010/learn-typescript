@@ -1,3 +1,17 @@
 ****************************************************************************************************
 1. Type Assertions:
+- Syntax:
+    + Use the 'as' keyword:
+        expression as targetType
+    + Use the angle bracket syntax <>:
+        <targetType> value
+
 - Sometimes you will have information about the type of a value that TypeScript can't know about.
+In other words, type assertions instruct the TypeScript compiler to treat a value as a specified type.
+
+- A type assertion is also known as type narrowing. It allows you to narrow a type from a union type.
+    + For example:
+    function getValue(): number | string {
+        // ...
+    }
+    let myValue = getValue() as string;

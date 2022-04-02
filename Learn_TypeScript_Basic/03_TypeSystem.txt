@@ -39,9 +39,9 @@ To opt out of type checking, you can use the 'any' keyword.
 ****************************************************************************************************
 2. Union types:
 - Syntax:
-    + Using type alias:
+    + Use type alias:
         type newAlias = typeA | typeB;
-    + Using variable:
+    + Use variable:
         let myVar: typeA | typeB;
 
 - A union type is a type formed from two or more other types,
@@ -57,9 +57,9 @@ For example:
 ****************************************************************************************************
 3. Intersection types:
 - Syntax:
-    + Using type alias:
+    + Use type alias:
         type newAlias = typeA & typeB;
-    + Using variable:
+    + Use variable:
         let myVar: typeA & typeB;
 
 - An intersection type creates a new type by combining multiple existing types.
@@ -214,17 +214,9 @@ For example:
 
 
 ****************************************************************************************************
-. Function:
+8. Enum:
 
 
 ****************************************************************************************************
-. Enum:
-
-
-****************************************************************************************************
-. Generics:
-
-
-****************************************************************************************************
-. Utility types:
+9. Utility types:
 
