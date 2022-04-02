@@ -1,0 +1,30 @@
+****************************************************************************************************
+TABLE OF CONTENTS:
+1. The 'keyof' type operator:
+2. The 'typeof' type operator:
+
+
+****************************************************************************************************
+1. The 'keyof' type operator:
+- The 'keyof' operator takes an object type and produces a string or numeric literal union of its keys.
+For example:
+    type Point = { x: number; y: number };
+    type P = keyof Point;
+    // Now, type P is the same type as "x" | "y".
+
+
+****************************************************************************************************
+1. The 'typeof' type operator:
+- JavaScript already has a 'typeof' operator you can use in an expression context.
+For example:
+    console.log(typeof "Hello"); // Output: "string".
+
+- TypeScript adds a 'typeof' operator you can use in a type context to refer to
+the type of a variable or property.
+For example:
+    let msg = "Hello";
+    let n: typeof msg;
+
+
+****************************************************************************************************
+3. Mapped Types:

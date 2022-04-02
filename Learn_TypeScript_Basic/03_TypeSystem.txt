@@ -215,6 +215,16 @@ For example:
 
 ****************************************************************************************************
 8. Enum:
+- Syntax:
+    enum name { constant1, constant2, ... };
+        'enum' is a keyword.
+        constant1, constant2, etc., are also known as the members of the enum.
+
+- An enum is a group of named constant values. Enum stands for enumerated type.
+
+- To define an enum, follow these steps:
+    + First, use the 'enum' keyword followed by the name of the enum.
+    + Then, define constant values for the enum.
 
 
 ****************************************************************************************************

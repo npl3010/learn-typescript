@@ -1,0 +1,4 @@
+****************************************************************************************************
+1. Generics:
+- TypeScript generics allow you to write the reusable and generalized
+form of functions, classes, and interfaces.
